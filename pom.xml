@@ -21,6 +21,12 @@
     </license>
   </licenses>
 
+  <scm>
+    <url>https://github.com/Mahoney/oss-deployable</url>
+    <connection>scm:git:git@github.com:Mahoney/oss-deployable.git</connection>
+    <developerConnection>scm:git:git@github.com:Mahoney/oss-deployable.git</developerConnection>
+  </scm>
+
   <prerequisites>
     <maven>2.2.1</maven>
   </prerequisites>
