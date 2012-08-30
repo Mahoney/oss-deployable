@@ -40,6 +40,7 @@
     <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
     <maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
     <maven-nexus-plugin-version>2.1</maven-nexus-plugin-version>
+    <maven-help-plugin.version>2.1.1</maven-help-plugin.version>
   </properties>
 
   <build>
@@ -117,6 +118,10 @@
           <groupId>org.sonatype.plugins</groupId>
           <artifactId>nexus-maven-plugin</artifactId>
           <version>${maven-nexus-plugin-version}</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-help-plugin</artifactId>
+          <version>${maven-help-plugin.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
