@@ -31,6 +31,9 @@
     <developer>
       <name>Robert Elliot</name>
       <email>rob@lidalia.org.uk</email>
+      <roles>
+        <role>Lead Developer</role>
+      </roles>
     </developer>
   </developers>
 
