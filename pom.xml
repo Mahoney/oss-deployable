@@ -113,6 +113,11 @@
           <artifactId>maven-enforcer-plugin</artifactId>
           <version>${maven-enforcer-plugin.version}</version>
         </plugin>
+        <plugin>
+          <groupId>org.sonatype.plugins</groupId>
+          <artifactId>nexus-maven-plugin</artifactId>
+          <version>${maven-nexus-plugin-version}</version>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -182,6 +187,15 @@
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-maven-plugin</artifactId>
+            <configuration>
+              <automatic>true</automatic>
+              <promoteAutoSelectOverride>true</promoteAutoSelectOverride>
+              <serverAuthId>sonatype-nexus-staging</serverAuthId>
+            </configuration>
           </plugin>
         </plugins>
       </build>
