@@ -27,6 +27,13 @@
     <developerConnection>scm:git:git@github.com:Mahoney/oss-deployable.git</developerConnection>
   </scm>
 
+  <developers>
+    <developer>
+      <name>Robert Elliot</name>
+      <email>rob@lidalia.org.uk</email>
+    </developer>
+  </developers>
+
   <prerequisites>
     <maven>2.2.1</maven>
   </prerequisites>
