@@ -215,6 +215,7 @@
               <automatic>true</automatic>
               <promoteAutoSelectOverride>true</promoteAutoSelectOverride>
               <serverAuthId>sonatype-nexus-staging</serverAuthId>
+              <targetRepositoryId>releases</targetRepositoryId>
             </configuration>
           </plugin>
         </plugins>
