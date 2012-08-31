@@ -4,7 +4,7 @@
 
   <groupId>uk.org.lidalia</groupId>
   <artifactId>oss-deployable</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
   <packaging>pom</packaging>
 
   <name>POM providing configuration for an open source deployment to Sonatype</name>
@@ -23,7 +23,7 @@
     <url>https://github.com/Mahoney/oss-deployable</url>
     <connection>scm:git:git@github.com:Mahoney/oss-deployable.git</connection>
     <developerConnection>scm:git:git@github.com:Mahoney/oss-deployable.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>oss-deployable-1.0.1</tag>
   </scm>
 
   <developers>
