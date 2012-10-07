@@ -56,7 +56,7 @@
     <maven-release-plugin.version>2.3.2</maven-release-plugin.version>
     <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
     <maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
-    <nexus-staging-maven-plugin-version>1.0.2</nexus-staging-maven-plugin-version>
+    <maven-nexus-plugin-version>2.1</maven-nexus-plugin-version>
     <maven-help-plugin.version>2.1.1</maven-help-plugin.version>
   </properties>
 
@@ -133,8 +133,8 @@
         </plugin>
         <plugin>
           <groupId>org.sonatype.plugins</groupId>
-          <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>${nexus-staging-maven-plugin-version}</version>
+          <artifactId>nexus-maven-plugin</artifactId>
+          <version>${maven-nexus-plugin-version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-help-plugin</artifactId>
@@ -194,11 +194,12 @@
           </plugin>
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-staging-maven-plugin</artifactId>
-            <extensions>true</extensions>
+            <artifactId>nexus-maven-plugin</artifactId>
             <configuration>
-              <nexusUrl>https://oss.sonatype.org</nexusUrl>
-              <serverId>sonatype-nexus-staging</serverId>
+              <automatic>true</automatic>
+              <promoteAutoSelectOverride>true</promoteAutoSelectOverride>
+              <serverAuthId>sonatype-nexus-staging</serverAuthId>
+              <targetRepositoryId>releases</targetRepositoryId>
             </configuration>
           </plugin>
         </plugins>
