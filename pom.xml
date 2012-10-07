@@ -49,16 +49,15 @@
 
     <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
     <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
-    <maven-install-plugin.version>2.3.1</maven-install-plugin.version>
+    <maven-install-plugin.version>2.4</maven-install-plugin.version>
     <maven-site-plugin.version>3.1</maven-site-plugin.version>
     <maven-source-plugin.version>2.2</maven-source-plugin.version>
-    <maven-javadoc-plugin.version>2.8.1</maven-javadoc-plugin.version>
+    <maven-javadoc-plugin.version>2.9</maven-javadoc-plugin.version>
     <maven-release-plugin.version>2.3.2</maven-release-plugin.version>
     <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
     <maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
-    <maven-nexus-plugin-version>2.1</maven-nexus-plugin-version>
+    <nexus-staging-maven-plugin-version>1.0.2</nexus-staging-maven-plugin-version>
     <maven-help-plugin.version>2.1.1</maven-help-plugin.version>
-    <wagon-scm.version>2.2</wagon-scm.version>
   </properties>
 
   <build>
@@ -134,8 +133,8 @@
         </plugin>
         <plugin>
           <groupId>org.sonatype.plugins</groupId>
-          <artifactId>nexus-maven-plugin</artifactId>
-          <version>${maven-nexus-plugin-version}</version>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${nexus-staging-maven-plugin-version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-help-plugin</artifactId>
@@ -143,47 +142,12 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    <extensions>
-      <extension>
-        <groupId>org.apache.maven.wagon</groupId>
-        <artifactId>wagon-scm</artifactId>
-        <version>${wagon-scm.version}</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-manager-plexus</artifactId>
-        <version>1.8</version>
-      </extension>
-      <extension>
-        <groupId>org.apache.maven.scm</groupId>
-        <artifactId>maven-scm-provider-gitexe</artifactId>
-        <version>1.8</version>
-      </extension>
-    </extensions>
   </build>
 
   <profiles>
     <profile>
       <id>sonatype-oss-release</id>
-      <repositories>
-        <repository>
-          <id>sonatype-nexus-snapshots</id>
-          <name>Sonatype Nexus Snapshots</name>
-          <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-          <releases>
-            <enabled>false</enabled>
-          </releases>
-          <snapshots>
-            <enabled>true</enabled>
-          </snapshots>
-        </repository>
-      </repositories>
       <distributionManagement>
-        <snapshotRepository>
-          <id>sonatype-nexus-snapshots</id>
-          <name>Sonatype Nexus Snapshots</name>
-          <url>${sonatypeOssDistMgmtSnapshotsUrl}</url>
-        </snapshotRepository>
         <repository>
           <id>sonatype-nexus-staging</id>
           <name>Nexus Release Repository</name>
@@ -230,12 +194,11 @@
           </plugin>
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-maven-plugin</artifactId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <extensions>true</extensions>
             <configuration>
-              <automatic>true</automatic>
-              <promoteAutoSelectOverride>true</promoteAutoSelectOverride>
-              <serverAuthId>sonatype-nexus-staging</serverAuthId>
-              <targetRepositoryId>releases</targetRepositoryId>
+              <nexusUrl>https://oss.sonatype.org</nexusUrl>
+              <serverId>sonatype-nexus-staging</serverId>
             </configuration>
           </plugin>
         </plugins>
