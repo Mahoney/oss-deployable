@@ -48,14 +48,14 @@
     <maven-clean-plugin.version>2.5</maven-clean-plugin.version>
     <maven-deploy-plugin.version>2.7</maven-deploy-plugin.version>
     <maven-install-plugin.version>2.4</maven-install-plugin.version>
-    <maven-site-plugin.version>3.1</maven-site-plugin.version>
-    <maven-source-plugin.version>2.2</maven-source-plugin.version>
+    <maven-site-plugin.version>3.3</maven-site-plugin.version>
+    <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
     <maven-javadoc-plugin.version>2.9</maven-javadoc-plugin.version>
-    <maven-release-plugin.version>2.3.2</maven-release-plugin.version>
-    <maven-enforcer-plugin.version>1.1.1</maven-enforcer-plugin.version>
+    <maven-release-plugin.version>2.4.1</maven-release-plugin.version>
+    <maven-enforcer-plugin.version>1.2</maven-enforcer-plugin.version>
     <maven-gpg-plugin.version>1.4</maven-gpg-plugin.version>
-    <maven-nexus-plugin-version>2.1</maven-nexus-plugin-version>
-    <maven-help-plugin.version>2.1.1</maven-help-plugin.version>
+    <nexus-staging-maven-plugin-version>1.4.4</nexus-staging-maven-plugin-version>
+    <maven-help-plugin.version>2.2</maven-help-plugin.version>
   </properties>
 
   <build>
@@ -131,8 +131,8 @@
         </plugin>
         <plugin>
           <groupId>org.sonatype.plugins</groupId>
-          <artifactId>nexus-maven-plugin</artifactId>
-          <version>${maven-nexus-plugin-version}</version>
+          <artifactId>nexus-staging-maven-plugin</artifactId>
+          <version>${nexus-staging-maven-plugin-version}</version>
         </plugin>
         <plugin>
           <artifactId>maven-help-plugin</artifactId>
@@ -192,12 +192,11 @@
           </plugin>
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
-            <artifactId>nexus-maven-plugin</artifactId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <extensions>true</extensions>
             <configuration>
-              <automatic>true</automatic>
-              <promoteAutoSelectOverride>true</promoteAutoSelectOverride>
-              <serverAuthId>sonatype-nexus-staging</serverAuthId>
-              <targetRepositoryId>releases</targetRepositoryId>
+              <nexusUrl>https://oss.sonatype.org</nexusUrl>
+              <serverId>sonatype-nexus-staging</serverId>
             </configuration>
           </plugin>
         </plugins>
