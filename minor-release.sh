@@ -44,7 +44,7 @@ function calculateReleaseBranchName {
   local versionToRelease=$1
   local majorVersion=`echo ${versionToRelease} | cut -d"." -f1`
   local minorVersion=`echo ${versionToRelease} | cut -d"." -f2`
-  echo $majorVersion.$minorVersion-RELEASE
+  echo RELEASE-$majorVersion.$minorVersion
 }
 
 function createBranch {
