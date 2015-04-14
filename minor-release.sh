@@ -82,8 +82,16 @@ function calculateNewVersion {
   echo $majorVersion.`expr $minorVersion + 1`.0-SNAPSHOT
 }
 
+function doRelease {
+  mvn -Psonatype-oss-release release:clean
+  mvn -Psonatype-oss-release -Dgpg.passphrase="$GPG_PASSPHRASE" --batch-mode clean release:prepare -DautoVersionSubmodules=true
+  mvn -Psonatype-oss-release -Dgpg.passphrase="$GPG_PASSPHRASE" release:perform
+  mvn -Psonatype-oss-release release:clean
+}
+
 VERSION_TO_RELEASE=`getPromotedVersion`
 assertReleasable $VERSION_TO_RELEASE
 RELEASE_BRANCH_NAME=`calculateReleaseBranchName $VERSION_TO_RELEASE`
 createBranch $RELEASE_BRANCH_NAME
+doRelease
 updateMasterVersions $VERSION_TO_RELEASE
