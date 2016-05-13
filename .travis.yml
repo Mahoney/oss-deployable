@@ -4,4 +4,4 @@ jdk:
   - oraclejdk7
   - oraclejdk8
 install: true
-script: mvn verify
+script: mvn verify site
